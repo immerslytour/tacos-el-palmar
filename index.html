@@ -335,121 +335,275 @@
         <button class="tab" onclick="filterMenu('burritos', this)">Burritos</button>
         <button class="tab" onclick="filterMenu('mariscos', this)">Mariscos</button>
         <button class="tab" onclick="filterMenu('especialidades', this)">Especialidades</button>
+        <button class="tab" onclick="filterMenu('bebidas', this)">Bebidas</button>
       </div>
     </div>
 
     <div class="menu-grid" id="menuGrid">
-      <!-- TACOS -->
+
+      <!-- TACOS / REGULAR -->
       <div class="menu-card" data-cat="tacos">
         <div class="card-top">
-          <div class="card-name">Taco de Carne Asada</div>
-          <div class="card-price">$3.50</div>
+          <div class="card-name">Taco</div>
+          <div class="card-price">$3.00</div>
         </div>
-        <div class="card-desc">Carne asada a la plancha, cebolla, cilantro, salsa de la casa en tortilla de maíz.</div>
+        <div class="card-desc">Tu elección de carne, repollo, cilantro, cebolla verde y salsa roja. Viene con limón, rábano y sal.</div>
         <span class="card-tag">⭐ Favorito</span>
       </div>
+
       <div class="menu-card" data-cat="tacos">
         <div class="card-top">
-          <div class="card-name">Taco Al Pastor</div>
-          <div class="card-price">$3.50</div>
+          <div class="card-name">Mulitas</div>
+          <div class="card-price">$4.50</div>
         </div>
-        <div class="card-desc">Cerdo marinado con achiote y piña, cebolla, cilantro, salsa verde.</div>
-        <span class="card-tag">Popular</span>
-      </div>
-      <div class="menu-card" data-cat="tacos">
-        <div class="card-top">
-          <div class="card-name">Taco de Pollo</div>
-          <div class="card-price">$3.50</div>
-        </div>
-        <div class="card-desc">Pollo a la plancha, guacamole, pico de gallo, tortilla de maíz.</div>
+        <div class="card-desc">Par de tortillas con queso y tu elección de carne. Llevan cilantro y cebolla adentro.</div>
         <span class="card-tag">Tacos</span>
       </div>
+
       <div class="menu-card" data-cat="tacos">
         <div class="card-top">
-          <div class="card-name">Taco de Tripa</div>
-          <div class="card-price">$3.50</div>
+          <div class="card-name">Taco Plate</div>
+          <div class="card-price">$12.00</div>
         </div>
-        <div class="card-desc">Tripa frita crujiente, cebolla, cilantro y salsa roja casera.</div>
+        <div class="card-desc">Plato de 3 tacos con tu elección de carne, ensalada, arroz y frijoles.</div>
         <span class="card-tag">Tacos</span>
+      </div>
+
+      <!-- LENGUA Y TRIPA -->
+      <div class="menu-card" data-cat="tacos">
+        <div class="card-top">
+          <div class="card-name">Taco de Lengua o Tripa</div>
+          <div class="card-price">$3.00</div>
+        </div>
+        <div class="card-desc">Repollo, salsa roja picante, cebolla y cilantro.</div>
+        <span class="card-tag">Lengua & Tripa</span>
+      </div>
+
+      <div class="menu-card" data-cat="burritos">
+        <div class="card-top">
+          <div class="card-name">Burrito de Lengua o Tripa</div>
+          <div class="card-price">$12.00</div>
+        </div>
+        <div class="card-desc">Carne, arroz, frijoles, repollo, cebolla y cilantro.</div>
+        <span class="card-tag">Lengua & Tripa</span>
       </div>
 
       <!-- BURRITOS -->
       <div class="menu-card" data-cat="burritos">
         <div class="card-top">
-          <div class="card-name">Super Burrito Asada</div>
-          <div class="card-price">$12.00</div>
+          <div class="card-name">Burrito</div>
+          <div class="card-price">$10.00</div>
         </div>
-        <div class="card-desc">Carne asada, arroz, frijoles, queso, aguacate y salsa de la casa. El más pedido.</div>
+        <div class="card-desc">Tu elección de carne, arroz, frijoles, cilantro y cebolla. Viene con salsa roja y limón.</div>
         <span class="card-tag">⭐ Favorito</span>
       </div>
-      <div class="menu-card" data-cat="burritos">
-        <div class="card-top">
-          <div class="card-name">Burrito Al Pastor</div>
-          <div class="card-price">$11.00</div>
-        </div>
-        <div class="card-desc">Pastor, arroz, frijoles, crema y salsa verde en tortilla grande de harina.</div>
-        <span class="card-tag">Burritos</span>
-      </div>
+
       <div class="menu-card" data-cat="burritos">
         <div class="card-top">
           <div class="card-name">Burrito de Camarón</div>
+          <div class="card-price">$12.00</div>
+        </div>
+        <div class="card-desc">Camarones, arroz, frijoles, repollo, cebolla y cilantro.</div>
+        <span class="card-tag">Mariscos</span>
+      </div>
+
+      <!-- TORTAS / QUESADILLAS -->
+      <div class="menu-card" data-cat="especialidades">
+        <div class="card-top">
+          <div class="card-name">Torta</div>
+          <div class="card-price">$10.00</div>
+        </div>
+        <div class="card-desc">Tu elección de carne, lechuga, tomate y aguacate. Con salsa y limón al lado.</div>
+        <span class="card-tag">Especialidades</span>
+      </div>
+
+      <div class="menu-card" data-cat="especialidades">
+        <div class="card-top">
+          <div class="card-name">Torta de Lengua o Tripa</div>
+          <div class="card-price">$12.00</div>
+        </div>
+        <div class="card-desc">Carne, lechuga, tomate y aguacate en pan telera.</div>
+        <span class="card-tag">Lengua & Tripa</span>
+      </div>
+
+      <div class="menu-card" data-cat="especialidades">
+        <div class="card-top">
+          <div class="card-name">Quesadilla</div>
+          <div class="card-price">$10.00</div>
+        </div>
+        <div class="card-desc">Grande, con tu elección de carne, cilantro y cebolla. Viene con salsa, limón y rábanos.</div>
+        <span class="card-tag">Especialidades</span>
+      </div>
+
+      <div class="menu-card" data-cat="especialidades">
+        <div class="card-top">
+          <div class="card-name">Cheese Quesadilla</div>
+          <div class="card-price">$6.00</div>
+        </div>
+        <div class="card-desc">Quesadilla grande solo con queso.</div>
+        <span class="card-tag">Especialidades</span>
+      </div>
+
+      <div class="menu-card" data-cat="especialidades">
+        <div class="card-top">
+          <div class="card-name">Quesadilla de Lengua o Tripa</div>
+          <div class="card-price">$12.00</div>
+        </div>
+        <div class="card-desc">Carne, queso, cebolla y cilantro. Salsas al lado.</div>
+        <span class="card-tag">Lengua & Tripa</span>
+      </div>
+
+      <div class="menu-card" data-cat="especialidades">
+        <div class="card-top">
+          <div class="card-name">Tostada de Carne</div>
+          <div class="card-price">$8.00</div>
+        </div>
+        <div class="card-desc">Tu elección de carne con frijoles, lechuga, tomate, cilantro, cebolla, aguacate y queso.</div>
+        <span class="card-tag">Especialidades</span>
+      </div>
+
+      <div class="menu-card" data-cat="especialidades">
+        <div class="card-top">
+          <div class="card-name">Asada Fries</div>
           <div class="card-price">$14.00</div>
         </div>
-        <div class="card-desc">Camarones salteados, arroz, frijoles, aguacate, pico de gallo.</div>
-        <span class="card-tag">Mariscos</span>
+        <div class="card-desc">Papas fritas cubiertas con queso, asada, crema y pico de gallo.</div>
+        <span class="card-tag">⭐ Especialidad</span>
+      </div>
+
+      <div class="menu-card" data-cat="especialidades">
+        <div class="card-top">
+          <div class="card-name">Quesacamarón</div>
+          <div class="card-price">$4.50</div>
+        </div>
+        <div class="card-desc">Tortilla de maíz mediana con camarón, cilantro y cebolla. Salsa al lado.</div>
+        <span class="card-tag">⭐ Especialidad</span>
+      </div>
+
+      <div class="menu-card" data-cat="especialidades">
+        <div class="card-top">
+          <div class="card-name">Quesabirria</div>
+          <div class="card-price">$4.50</div>
+        </div>
+        <div class="card-desc">Tortilla de maíz con queso y birria. Con mezcla de cilantro y cebolla.</div>
+        <span class="card-tag">⭐ Especialidad</span>
       </div>
 
       <!-- MARISCOS -->
       <div class="menu-card" data-cat="mariscos">
         <div class="card-top">
-          <div class="card-name">Quesacamarón</div>
-          <div class="card-price">$14.00</div>
+          <div class="card-name">Tostada de Ceviche</div>
+          <div class="card-price">$8.00</div>
         </div>
-        <div class="card-desc">Quesadilla frita con camarones perfectamente cocidos. Una de las estrellas del menú.</div>
-        <span class="card-tag">⭐ Especialidad</span>
-      </div>
-      <div class="menu-card" data-cat="mariscos">
-        <div class="card-top">
-          <div class="card-name">Taco de Camarón</div>
-          <div class="card-price">$4.50</div>
-        </div>
-        <div class="card-desc">Camarones a la plancha, repollo, crema, pico de gallo en tortilla de maíz.</div>
-        <span class="card-tag">Mariscos</span>
-      </div>
-      <div class="menu-card" data-cat="mariscos">
-        <div class="card-top">
-          <div class="card-name">Taco de Pescado</div>
-          <div class="card-price">$4.50</div>
-        </div>
-        <div class="card-desc">Tilapia empanizada o asada, lechuga, crema y salsa especial.</div>
+        <div class="card-desc">Ceviche fresco sobre tostada crujiente.</div>
         <span class="card-tag">Mariscos</span>
       </div>
 
-      <!-- ESPECIALIDADES -->
-      <div class="menu-card" data-cat="especialidades">
+      <div class="menu-card" data-cat="mariscos">
         <div class="card-top">
-          <div class="card-name">Torta de Asada</div>
+          <div class="card-name">Coctel de Camarón</div>
+          <div class="card-price">$12.00</div>
+        </div>
+        <div class="card-desc">Coctel de camarones al estilo mexicano.</div>
+        <span class="card-tag">Mariscos</span>
+      </div>
+
+      <div class="menu-card" data-cat="mariscos">
+        <div class="card-top">
+          <div class="card-name">Taco de Camarón</div>
+          <div class="card-price">$3.00</div>
+        </div>
+        <div class="card-desc">Camarones frescos en tortilla de maíz con toppings de la casa.</div>
+        <span class="card-tag">Mariscos</span>
+      </div>
+
+      <div class="menu-card" data-cat="mariscos">
+        <div class="card-top">
+          <div class="card-name">Quesadilla de Camarón</div>
+          <div class="card-price">$12.00</div>
+        </div>
+        <div class="card-desc">Quesadilla grande con camarones, queso, cebolla y cilantro.</div>
+        <span class="card-tag">Mariscos</span>
+      </div>
+
+      <div class="menu-card" data-cat="mariscos">
+        <div class="card-top">
+          <div class="card-name">Tostada de Camarón</div>
           <div class="card-price">$10.00</div>
         </div>
-        <div class="card-desc">Pan telera, carne asada, frijoles, aguacate, jalapeño, tomate.</div>
-        <span class="card-tag">Especialidades</span>
+        <div class="card-desc">Tostada con camarones y toppings frescos.</div>
+        <span class="card-tag">Mariscos</span>
       </div>
+
+      <!-- SIDES -->
       <div class="menu-card" data-cat="especialidades">
         <div class="card-top">
-          <div class="card-name">Quesadilla de Asada</div>
-          <div class="card-price">$9.00</div>
+          <div class="card-name">Plate of Rice</div>
+          <div class="card-price">$3.00</div>
         </div>
-        <div class="card-desc">Carne asada con queso Oaxaca derretido, servida con guacamole.</div>
-        <span class="card-tag">Especialidades</span>
+        <div class="card-desc">Plato de arroz mexicano.</div>
+        <span class="card-tag">Sides</span>
       </div>
+
       <div class="menu-card" data-cat="especialidades">
         <div class="card-top">
-          <div class="card-name">Nachos con Carne</div>
-          <div class="card-price">$11.00</div>
+          <div class="card-name">Plate of Beans</div>
+          <div class="card-price">$3.00</div>
         </div>
-        <div class="card-desc">Totopos con queso fundido, carne a elegir, jalapeños, crema y guacamole.</div>
-        <span class="card-tag">Especialidades</span>
+        <div class="card-desc">Plato de frijoles enteros.</div>
+        <span class="card-tag">Sides</span>
       </div>
+
+      <!-- BEBIDAS -->
+      <div class="menu-card" data-cat="bebidas">
+        <div class="card-top">
+          <div class="card-name">Jarritos</div>
+          <div class="card-price">$3.00</div>
+        </div>
+        <div class="card-desc">Refresco mexicano en varios sabores.</div>
+        <span class="card-tag">Bebidas</span>
+      </div>
+      <div class="menu-card" data-cat="bebidas">
+        <div class="card-top">
+          <div class="card-name">Mexican Bottle Coke</div>
+          <div class="card-price">$4.00</div>
+        </div>
+        <div class="card-desc">Coca-Cola mexicana de vidrio con azúcar de caña.</div>
+        <span class="card-tag">⭐ Favorito</span>
+      </div>
+      <div class="menu-card" data-cat="bebidas">
+        <div class="card-top">
+          <div class="card-name">Can Soda</div>
+          <div class="card-price">$1.50</div>
+        </div>
+        <div class="card-desc">Refresco en lata.</div>
+        <span class="card-tag">Bebidas</span>
+      </div>
+      <div class="menu-card" data-cat="bebidas">
+        <div class="card-top">
+          <div class="card-name">Plastic Bottle Pepsi/Coke</div>
+          <div class="card-price">$3.00</div>
+        </div>
+        <div class="card-desc">Pepsi o Coca-Cola en botella de plástico.</div>
+        <span class="card-tag">Bebidas</span>
+      </div>
+      <div class="menu-card" data-cat="bebidas">
+        <div class="card-top">
+          <div class="card-name">Gatorade</div>
+          <div class="card-price">$3.00</div>
+        </div>
+        <div class="card-desc">Bebida deportiva.</div>
+        <span class="card-tag">Bebidas</span>
+      </div>
+      <div class="menu-card" data-cat="bebidas">
+        <div class="card-top">
+          <div class="card-name">Water</div>
+          <div class="card-price">$1.00</div>
+        </div>
+        <div class="card-desc">Agua embotellada.</div>
+        <span class="card-tag">Bebidas</span>
+      </div>
+
     </div>
   </div>
 </div>
