@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tacos El Palmar — Fresno, CA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:   #2E7D32;
+      --gold:    #D4A017;
+      --dark:    #0A1A0A;
+      --dark2:   #111A11;
+      --glass:   rgba(255,255,255,0.06);
+      --glass-b: rgba(255,255,255,0.12);
+      --text:    #F0F0E8;
+      --muted:   rgba(240,240,232,0.55);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 24px;
+      background: rgba(10,26,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(46,125,50,0.2);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+    }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text);
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em;
+      opacity: 0.85; transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--gold); }
+    .nav-ig {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em;
+      color: var(--gold); text-decoration: none;
+      border: 1px solid var(--gold); border-radius: 4px;
+      padding: 6px 14px; transition: background 0.2s, color 0.2s;
+    }
+    .nav-ig:hover { background: var(--gold); color: var(--dark); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; height: 100svh; min-height: 560px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      filter: brightness(0.55);
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,26,10,0.35) 0%,
+        rgba(10,26,10,0.10) 40%,
+        rgba(10,26,10,0.70) 100%
+      );
+    }
+    .hero-content { position: relative; z-index: 2; padding: 0 20px; }
+    .hero-eyebrow {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 14px; opacity: 0.9;
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.2rem, 12vw, 7.5rem);
+      line-height: 0.95; letter-spacing: 0.02em;
+      text-shadow: 0 4px 32px rgba(0,0,0,0.6);
+      margin-bottom: 18px;
+    }
+    .hero-title span { color: var(--gold); }
+    .hero-sub {
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      color: var(--muted); max-width: 480px; margin: 0 auto 32px;
+      line-height: 1.55;
+    }
+    .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 13px 28px; border-radius: 6px;
+      background: var(--green); color: #fff;
+      font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em;
+      text-decoration: none; text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: #388E3C; transform: translateY(-2px); }
+    .btn-outline {
+      padding: 13px 28px; border-radius: 6px;
+      background: transparent; color: var(--text);
+      font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em;
+      text-decoration: none; text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.35);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(212,160,23,0.1); }
+
+    /* ── PROOF BANNER ── */
+    .proof {
+      background: var(--green);
+      padding: 12px 24px;
+      text-align: center;
+      font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: #fff;
+    }
+    .proof span { color: var(--gold); font-size: 1.05rem; }
+
+    /* ── SECTIONS shared ── */
+    section { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--green); margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      letter-spacing: 0.04em; margin-bottom: 12px; line-height: 1;
+    }
+    .section-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.6; max-width: 520px; }
+
+    /* ── STATS ── */
+    .stats-wrap {
+      background: var(--dark2);
+      border-top: 1px solid rgba(46,125,50,0.2);
+      border-bottom: 1px solid rgba(46,125,50,0.2);
+    }
+    .stats-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 60px 24px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 40px; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.4rem; color: var(--gold); line-height: 1;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 6px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* ── MENU ── */
+    .menu-wrap { background: var(--dark2); padding: 80px 0; }
+    .menu-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .menu-header { margin-bottom: 40px; }
+    .filter-tabs {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px;
+    }
+    .tab {
+      padding: 8px 20px; border-radius: 40px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: transparent; color: var(--muted);
+      transition: all 0.2s;
+    }
+    .tab.active, .tab:hover {
+      background: var(--green); color: #fff; border-color: var(--green);
+    }
+    .menu-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px; margin-top: 32px;
+    }
+    .menu-card {
+      background: var(--glass); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 22px;
+      backdrop-filter: blur(8px);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .menu-card:hover { border-color: rgba(46,125,50,0.5); transform: translateY(-3px); }
+    .menu-card.hidden { display: none; }
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .card-name { font-weight: 700; font-size: 1rem; line-height: 1.3; }
+    .card-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--gold); white-space: nowrap; }
+    .card-desc { font-size: 0.82rem; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+    .card-tag {
+      display: inline-block; margin-top: 12px;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 3px 9px; border-radius: 4px;
+      background: rgba(46,125,50,0.25); color: var(--green);
+    }
+
+    /* ── LOCATION ── */
+    .location-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: center; margin-top: 40px;
+    }
+    @media (max-width: 680px) { .location-grid { grid-template-columns: 1fr; } }
+    .info-rows { display: flex; flex-direction: column; gap: 20px; }
+    .info-row { display: flex; gap: 16px; align-items: flex-start; }
+    .info-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(46,125,50,0.18); display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .info-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 4px; }
+    .info-val { font-size: 0.95rem; color: var(--text); line-height: 1.5; }
+    .map-embed {
+      border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08);
+      aspect-ratio: 4/3;
+    }
+    .map-embed iframe { width: 100%; height: 100%; border: none; }
+
+    /* ── ORDER BUTTONS ── */
+    .order-wrap { background: var(--dark2); padding: 80px 0; }
+    .order-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .order-btns {
+      display: flex; gap: 16px; flex-wrap: wrap; margin-top: 36px;
+    }
+    .order-btn {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 28px; border-radius: 8px; text-decoration: none;
+      font-weight: 700; font-size: 0.9rem; letter-spacing: 0.04em;
+      text-transform: uppercase; transition: transform 0.15s, opacity 0.2s;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: var(--glass); color: var(--text);
+    }
+    .order-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+    .order-btn .ob-icon { font-size: 1.4rem; }
+    .order-btn.call  { background: var(--green); border-color: var(--green); color: #fff; }
+    .order-btn.wa    { background: #25D366; border-color: #25D366; color: #fff; }
+    .order-btn.dd    { background: #FF3008; border-color: #FF3008; color: #fff; }
+    .order-btn.ue    { background: #142328; border-color: #06C167; color: #06C167; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #050D05;
+      border-top: 1px solid rgba(46,125,50,0.18);
+      padding: 40px 24px; text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; letter-spacing: 0.08em; color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .footer-sub { font-size: 0.8rem; color: var(--muted); margin-bottom: 24px; }
+    .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.72rem; color: rgba(240,240,232,0.3); }
+
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">El Palmar</div>
+  <ul class="nav-links">
+    <li><a href="#menu">Menú</a></li>
+    <li><a href="#location">Ubicación</a></li>
+    <li><a href="#order">Ordenar</a></li>
+  </ul>
+  <a class="nav-ig" href="https://www.facebook.com/p/Tacos-El-Palmar-100083172064424/" target="_blank" rel="noopener">Facebook</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="hero.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">🌮 Fresno, CA · 3628 E Butler Ave</div>
+    <h1 class="hero-title">Tacos<br/><span>El Palmar</span></h1>
+    <p class="hero-sub">Sabor de familia desde siempre. Tacos, burritos y mariscos al estilo mexicano auténtico — en el corazón de Fresno.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#menu">Ver Menú</a>
+      <a class="btn-outline" href="tel:5597091451">📞 Llamar</a>
+    </div>
+  </div>
+</div>
+
+<!-- PROOF BANNER -->
+<div class="proof">
+  ⭐ <span>4.4</span> estrellas · Más de <span>241</span> reseñas en Google — Lunes a Domingo <span>10AM – 10PM</span>
+</div>
+
+<!-- STATS -->
+<div class="stats-wrap">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num">4.4★</div>
+      <div class="stat-label">Rating Google Maps</div>
+    </div>
+    <div>
+      <div class="stat-num">241+</div>
+      <div class="stat-label">Reseñas de clientes</div>
+    </div>
+    <div>
+      <div class="stat-num">7 días</div>
+      <div class="stat-label">Abiertos toda la semana</div>
+    </div>
+    <div>
+      <div class="stat-num">$0</div>
+      <div class="stat-label">En publicidad — pura calidad</div>
+    </div>
+  </div>
+</div>
+
+<!-- MENU -->
+<div class="menu-wrap" id="menu">
+  <div class="menu-inner">
+    <div class="menu-header">
+      <div class="section-label">Nuestro Menú</div>
+      <h2 class="section-title">Comida Mexicana<br/>de Verdad</h2>
+      <p class="section-sub">Ingredientes frescos, sazón de familia, preparado al momento.</p>
+      <div class="filter-tabs">
+        <button class="tab active" onclick="filterMenu('all', this)">Todo</button>
+        <button class="tab" onclick="filterMenu('tacos', this)">Tacos</button>
+        <button class="tab" onclick="filterMenu('burritos', this)">Burritos</button>
+        <button class="tab" onclick="filterMenu('mariscos', this)">Mariscos</button>
+        <button class="tab" onclick="filterMenu('especialidades', this)">Especialidades</button>
+      </div>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+      <!-- TACOS -->
+      <div class="menu-card" data-cat="tacos">
+        <div class="card-top">
+          <div class="card-name">Taco de Carne Asada</div>
+          <div class="card-price">$3.50</div>
+        </div>
+        <div class="card-desc">Carne asada a la plancha, cebolla, cilantro, salsa de la casa en tortilla de maíz.</div>
+        <span class="card-tag">⭐ Favorito</span>
+      </div>
+      <div class="menu-card" data-cat="tacos">
+        <div class="card-top">
+          <div class="card-name">Taco Al Pastor</div>
+          <div class="card-price">$3.50</div>
+        </div>
+        <div class="card-desc">Cerdo marinado con achiote y piña, cebolla, cilantro, salsa verde.</div>
+        <span class="card-tag">Popular</span>
+      </div>
+      <div class="menu-card" data-cat="tacos">
+        <div class="card-top">
+          <div class="card-name">Taco de Pollo</div>
+          <div class="card-price">$3.50</div>
+        </div>
+        <div class="card-desc">Pollo a la plancha, guacamole, pico de gallo, tortilla de maíz.</div>
+        <span class="card-tag">Tacos</span>
+      </div>
+      <div class="menu-card" data-cat="tacos">
+        <div class="card-top">
+          <div class="card-name">Taco de Tripa</div>
+          <div class="card-price">$3.50</div>
+        </div>
+        <div class="card-desc">Tripa frita crujiente, cebolla, cilantro y salsa roja casera.</div>
+        <span class="card-tag">Tacos</span>
+      </div>
+
+      <!-- BURRITOS -->
+      <div class="menu-card" data-cat="burritos">
+        <div class="card-top">
+          <div class="card-name">Super Burrito Asada</div>
+          <div class="card-price">$12.00</div>
+        </div>
+        <div class="card-desc">Carne asada, arroz, frijoles, queso, aguacate y salsa de la casa. El más pedido.</div>
+        <span class="card-tag">⭐ Favorito</span>
+      </div>
+      <div class="menu-card" data-cat="burritos">
+        <div class="card-top">
+          <div class="card-name">Burrito Al Pastor</div>
+          <div class="card-price">$11.00</div>
+        </div>
+        <div class="card-desc">Pastor, arroz, frijoles, crema y salsa verde en tortilla grande de harina.</div>
+        <span class="card-tag">Burritos</span>
+      </div>
+      <div class="menu-card" data-cat="burritos">
+        <div class="card-top">
+          <div class="card-name">Burrito de Camarón</div>
+          <div class="card-price">$14.00</div>
+        </div>
+        <div class="card-desc">Camarones salteados, arroz, frijoles, aguacate, pico de gallo.</div>
+        <span class="card-tag">Mariscos</span>
+      </div>
+
+      <!-- MARISCOS -->
+      <div class="menu-card" data-cat="mariscos">
+        <div class="card-top">
+          <div class="card-name">Quesacamarón</div>
+          <div class="card-price">$14.00</div>
+        </div>
+        <div class="card-desc">Quesadilla frita con camarones perfectamente cocidos. Una de las estrellas del menú.</div>
+        <span class="card-tag">⭐ Especialidad</span>
+      </div>
+      <div class="menu-card" data-cat="mariscos">
+        <div class="card-top">
+          <div class="card-name">Taco de Camarón</div>
+          <div class="card-price">$4.50</div>
+        </div>
+        <div class="card-desc">Camarones a la plancha, repollo, crema, pico de gallo en tortilla de maíz.</div>
+        <span class="card-tag">Mariscos</span>
+      </div>
+      <div class="menu-card" data-cat="mariscos">
+        <div class="card-top">
+          <div class="card-name">Taco de Pescado</div>
+          <div class="card-price">$4.50</div>
+        </div>
+        <div class="card-desc">Tilapia empanizada o asada, lechuga, crema y salsa especial.</div>
+        <span class="card-tag">Mariscos</span>
+      </div>
+
+      <!-- ESPECIALIDADES -->
+      <div class="menu-card" data-cat="especialidades">
+        <div class="card-top">
+          <div class="card-name">Torta de Asada</div>
+          <div class="card-price">$10.00</div>
+        </div>
+        <div class="card-desc">Pan telera, carne asada, frijoles, aguacate, jalapeño, tomate.</div>
+        <span class="card-tag">Especialidades</span>
+      </div>
+      <div class="menu-card" data-cat="especialidades">
+        <div class="card-top">
+          <div class="card-name">Quesadilla de Asada</div>
+          <div class="card-price">$9.00</div>
+        </div>
+        <div class="card-desc">Carne asada con queso Oaxaca derretido, servida con guacamole.</div>
+        <span class="card-tag">Especialidades</span>
+      </div>
+      <div class="menu-card" data-cat="especialidades">
+        <div class="card-top">
+          <div class="card-name">Nachos con Carne</div>
+          <div class="card-price">$11.00</div>
+        </div>
+        <div class="card-desc">Totopos con queso fundido, carne a elegir, jalapeños, crema y guacamole.</div>
+        <span class="card-tag">Especialidades</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="section-label">Encuéntranos</div>
+  <h2 class="section-title">¿Dónde Estamos?</h2>
+  <div class="location-grid">
+    <div class="info-rows">
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Dirección</div>
+          <div class="info-val">3628 E Butler Ave<br/>Fresno, CA 93702</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🕐</div>
+        <div>
+          <div class="info-label">Horario</div>
+          <div class="info-val">Lun – Dom: 10:00 AM – 10:00 PM</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📞</div>
+        <div>
+          <div class="info-label">Teléfono</div>
+          <div class="info-val"><a href="tel:5597091451" style="color:var(--text);text-decoration:none;">(559) 709-1451</a></div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🚗</div>
+        <div>
+          <div class="info-label">Estacionamiento</div>
+          <div class="info-val">Estacionamiento gratuito disponible. Accesible para silla de ruedas.</div>
+        </div>
+      </div>
+    </div>
+    <div class="map-embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3175.4!2d-119.7639!3d36.7318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80945ab4fef8b4eb%3A0x0!2sTacos%20El%20Palmar%2C%203628%20E%20Butler%20Ave%2C%20Fresno%2C%20CA%2093702!5e0!3m2!1ses!2sus!4v1700000000000"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<div class="order-wrap" id="order">
+  <div class="order-inner">
+    <div class="section-label">Ordena Ahora</div>
+    <h2 class="section-title">¿Cómo Quieres<br/>Tu Orden?</h2>
+    <p class="section-sub">Llámanos directamente o pide por delivery — como prefieras.</p>
+    <div class="order-btns">
+      <a class="order-btn call" href="tel:5597091451">
+        <span class="ob-icon">📞</span> Llamar Ahora
+      </a>
+      <a class="order-btn wa" href="https://wa.me/15597091451" target="_blank" rel="noopener">
+        <span class="ob-icon">💬</span> WhatsApp
+      </a>
+      <a class="order-btn" href="https://www.google.com/maps/place/Tacos+El+Palmar,+3628+E+Butler+Ave,+Fresno,+CA+93702" target="_blank" rel="noopener">
+        <span class="ob-icon">📍</span> Google Maps
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Tacos El Palmar</div>
+  <div class="footer-sub">3628 E Butler Ave, Fresno CA · (559) 709-1451 · Lun–Dom 10AM–10PM</div>
+  <div class="footer-links">
+    <a href="#menu">Menú</a>
+    <a href="#location">Ubicación</a>
+    <a href="#order">Ordenar</a>
+    <a href="https://www.facebook.com/p/Tacos-El-Palmar-100083172064424/" target="_blank" rel="noopener">Facebook</a>
+  </div>
+  <div class="footer-copy">© 2025 Tacos El Palmar · Website by Guidepost Media</div>
+</footer>
+
+<script>
+  function filterMenu(cat, btn) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.menu-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+</script>
+</body>
+</html>
